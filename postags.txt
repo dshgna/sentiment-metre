@@ -16,3 +16,8 @@ is v
 very r
 enthusiastic a
 
+is lazy and stupid
+is v
+lazy a
+stupid a
+

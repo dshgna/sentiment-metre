@@ -1,5 +1,6 @@
 <xml>
-<verb_phrasep><sentence>is a good worker</sentence><score>0.6337632198238539</score><verb_phrase>
-<verb_phrasep><sentence>tries his best to complete every given task satisfactorily</sentence><score>1.3366788321167884</score><verb_phrase>
-<verb_phrasep><sentence>is very enthusiastic</sentence><score>0.7083333333333334</score><verb_phrase>
+<verb_phrase><sentence>is a good worker</sentence><score>0.6337632198238539</score><verb_phrase>
+<verb_phrase><sentence>tries his best to complete every given task satisfactorily</sentence><score>1.3366788321167884</score><verb_phrase>
+<verb_phrase><sentence>is very enthusiastic</sentence><score>0.7083333333333334</score><verb_phrase>
+<verb_phrase><sentence>is lazy and stupid</sentence><score>-0.5113636363636364</score><verb_phrase>
 </xml>
