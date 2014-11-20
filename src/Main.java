@@ -21,7 +21,8 @@ public class Main {
 		for(Object[] sent: taggedDoc){
 			Double sentSum = 0.0;
 	    	String sentence = (String) sent[0]; 
-	    	ArrayList<String[]> phrase = (ArrayList<String[]>) sent[1];
+	    	@SuppressWarnings("unchecked")
+			ArrayList<String[]> phrase = (ArrayList<String[]>) sent[1];
 	    	for(String[] word: phrase){
 	    		Double score = sc.extract(word[0], word[1]); 
 	    		if(score!=null) 

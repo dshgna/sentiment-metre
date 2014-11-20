@@ -7,14 +7,11 @@ import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
 import edu.stanford.nlp.ling.CoreAnnotations.SentencesAnnotation;
-import edu.stanford.nlp.ling.CoreLabel;
 import edu.stanford.nlp.ling.Sentence;
-import edu.stanford.nlp.ling.Word;
 import edu.stanford.nlp.pipeline.Annotation;
 import edu.stanford.nlp.pipeline.StanfordCoreNLP;
 import edu.stanford.nlp.trees.Tree;
 import edu.stanford.nlp.trees.TreeCoreAnnotations;
-import edu.stanford.nlp.trees.Trees;
 import edu.stanford.nlp.util.CoreMap;
 
 
@@ -74,7 +71,8 @@ public class VPExtractor {
 	    for(Object[] sent: taggedDoc){
 	    	String sentence = (String) sent[0]; 
 	    	out2.println(sentence);
-	    	ArrayList<String[]> phrase = (ArrayList<String[]>) sent[1];
+	    	@SuppressWarnings("unchecked")
+			ArrayList<String[]> phrase = (ArrayList<String[]>) sent[1];
 	    	for(String[] word: phrase){
 	    		out2.println(word[0] + " " + word[1]); }
 	    	out2.println();
