@@ -1,0 +1,18 @@
+is a good worker
+is v
+good a
+worker n
+
+tries his best to complete every given task satisfactorily
+tries v
+best a
+complete v
+given v
+task n
+satisfactorily r
+
+is very enthusiastic
+is v
+very r
+enthusiastic a
+
