@@ -1,5 +1,6 @@
 import java.io.IOException;
 import java.io.PrintWriter;
+import java.text.DecimalFormat;
 import java.util.ArrayList;
 
 import edu.stanford.nlp.io.IOUtils;
@@ -19,16 +20,12 @@ public class Main {
 		//Generate sentiment score for text
 		SentiScoreCalculator sc = new SentiScoreCalculator();
 		for(Object[] sent: taggedDoc){
-			Double sentSum = 0.0;
-	    	String sentence = (String) sent[0]; 
+			String sentence = (String) sent[0]; 
 	    	@SuppressWarnings("unchecked")
 			ArrayList<String[]> phrase = (ArrayList<String[]>) sent[1];
-	    	for(String[] word: phrase){
-	    		Double score = sc.extract(word[0], word[1]); 
-	    		if(score!=null) 
-	    			sentSum += score;
-	    	}
-	    	out.println("<verb_phrase><sentence>" + sentence + "</sentence><score>" + sentSum + "</score><verb_phrase>");
+			Double normalizedSum = sc.calculateNormalizedScore(phrase);
+			DecimalFormat df = new DecimalFormat("####0.00");
+	    	out.println("<verb_phrase><sentence>" + sentence + "</sentence><score>" + df.format(normalizedSum) + "</score><verb_phrase>");
 	    }
 		out.println("</xml>");
 		out.close();

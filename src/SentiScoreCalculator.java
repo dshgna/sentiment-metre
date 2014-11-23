@@ -1,13 +1,15 @@
 import java.io.BufferedReader;
 import java.io.FileReader;
 import java.io.IOException;
+import java.math.RoundingMode;
+import java.text.DecimalFormat;
+import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.Map;
 
 public class SentiScoreCalculator {
 	String pathToSWN = "SentiWordNet_3.0.0_20130122.txt";
 	private Map<String, Double> dictionary;
-	
 	
 	//Creates Dictionary
 	public SentiScoreCalculator() throws IOException {
@@ -60,9 +62,23 @@ public class SentiScoreCalculator {
 			if (reader != null) {
 				reader.close();		}}}
 	
+	//Extracts from dictionary
 	public Double extract(String word, String pos) {
 		return dictionary.get(word + "#" + pos);	}
 	
+	//Calculates score and normalizes to sentence length between (-5,+5)
+	public double calculateNormalizedScore(ArrayList<String[]> phrase){
+		Double sentSum = 0.0;
+		int scoredWords = 0;
+    	for(String[] word: phrase){
+    		Double score = extract(word[0], word[1]); 
+    		if(score!=null) {
+    			sentSum += score;
+    			scoredWords++;		}}
+    	double normalizedScore = (sentSum*5)/scoredWords;
+    	//System.out.println(sentSum + " " + scoredWords);
+    	return normalizedScore;
+	}
 	
 }
 	
